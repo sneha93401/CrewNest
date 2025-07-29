@@ -11,7 +11,7 @@ export const AuthScreen = () => {
     <div
       className="h-screen flex items-center justify-center"
       style={{
-        background: "linear-gradient(to top, #09203f 0%, #537895 100%)",
+        background: "#001D35",
       }}
     >
       <div className="md-h-auto md:w-[420px]">

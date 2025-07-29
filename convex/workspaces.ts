@@ -1,7 +1,8 @@
 import { getAuthUserId } from '@convex-dev/auth/server';
 import { v } from 'convex/values';
-
 import { mutation, query } from './_generated/server';
+
+import { auth } from './auth';
 
 const generateCode = () => {
   const code = Array.from({ length: 6 }, () => '0123456789abcdefghijklmnopqrstuvwxyz'[Math.floor(Math.random() * 36)]).join('');
@@ -250,6 +251,21 @@ export const remove = mutation({
   },
 });
 
+
+export const count = query({
+  args: {},
+  handler: async (ctx) => {
+    const userId = await auth.getUserId(ctx);
+    if (!userId) return 0;
+
+    const workspaces = await ctx.db
+      .query('workspaces')
+      .withIndex('by_userId', (q) => q.eq('userId', userId))
+      .collect();
+
+    return workspaces.length;
+  },
+});
 
 
 //////////////// below code video dekh ke likha hai dhiraj ne

@@ -2,14 +2,22 @@ import { authTables } from '@convex-dev/auth/server';
 import { defineSchema, defineTable } from 'convex/server';
 import { v } from 'convex/values';
 
+// const schema = defineSchema({
+//   ...authTables,
+//   // users: authTables.users.index("by_tokenIdentifier", ["tokenIdentifier"]),
+//   workspaces: defineTable({
+//     name: v.string(),
+//     userId: v.id('users'),
+//     joinCode: v.string(),
+//   }),
 const schema = defineSchema({
   ...authTables,
-  // users: authTables.users.index("by_tokenIdentifier", ["tokenIdentifier"]),
   workspaces: defineTable({
     name: v.string(),
     userId: v.id('users'),
     joinCode: v.string(),
-  }),
+  }).index('by_userId', ['userId']),
+  
   members: defineTable({
     userId: v.id('users'),
     workspaceId: v.id('workspaces'),
@@ -53,6 +61,8 @@ const schema = defineSchema({
     .index('by_message_id', ['messageId'])
     .index('by_member_id', ['memberId']),
 });
+
+
 
 export default schema;
 
