@@ -11,7 +11,7 @@ export const Sidebar = () => {
   const pathname = usePathname();
 
   return (
-    <aside className="w-[70px] h-full bg-[#481349] flex flex-col gap-y-4 items-center pt-[9px] pb-[4px]">
+    <aside className="w-[70px] h-full bg-[#296a52] flex flex-col gap-y-4 items-center pt-[9px] pb-[4px]">
       <WorkspaceSwitcher />
       <SidebarButton icon={Home} label="Home" isActive={pathname.includes("/workspace")} />
       <SidebarButton icon={MessageSquare} label="DMs" />

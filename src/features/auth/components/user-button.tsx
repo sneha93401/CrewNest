@@ -36,7 +36,7 @@ export const UserButton = () => {
             <DropdownMenuTrigger className="outline-none relative flex jusify-center items-center">
                 <Avatar className=" size-10 hover:opacity-75 transition ">
                     <AvatarImage  alt = {name} src={image}/>
-                    <AvatarFallback className="bg-sky-500 text-white">
+                    <AvatarFallback className="bg-[#040705] text-white">
                         {avatarFallbackText}
                     </AvatarFallback>
                 </Avatar>
