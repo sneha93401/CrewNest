@@ -13,12 +13,19 @@ import { SignInFlow } from "../types";
 import { TriangleAlert } from "lucide-react";
 import { useAuthActions } from "@convex-dev/auth/react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
+import { useRouter } from "next/navigation";
+
+
+
 
 interface SignUpCardProps {
   setState: (state: SignInFlow) => void;
+ 
 }
 
 export function SignUpCard({ setState }: SignUpCardProps) {
+  
+ const router = useRouter()
   const { signIn } = useAuthActions();
 
   const [name, setName] = useState("");
@@ -29,27 +36,7 @@ export function SignUpCard({ setState }: SignUpCardProps) {
   const [errors, setErrors] = useState({ email: "", password: "" });
   const [error, setError] = useState("");
 
-  // const onPasswordSignUp = (e: React.FormEvent<HTMLFormElement>) => {
-  //     e.preventDefault();
-
-  //     if (password !== confirmPassword) {
-  //         setErrors({ email: "", password: "Passwords do not match" });
-  //         return;
-  //     }
-
-  //     setPending(true);
-  //     signIn("password", { name, email, password, flow: "signUp" })
-  //         .catch(() => {
-  //             setError("Something went wrong");
-  //         })
-  //         .finally(() => {
-  //             setPending(false);
-  //         })
-  // }
-
-  const nameRegex =
-    // /^(?!.*\b(admin|test|xyz|qwerty|abc|demo)\b)[a-zA-Z ]{3,30}$/;
-    /^[A-Z][a-z]+(?: [A-Z][a-z]+)*$/;
+  const nameRegex = /^[a-zA-Z]+(?: [a-zA-Z]+)*$/;
   const emailRegex =
     /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|hotmail\.com|outlook\.com)$/;
   const passwordRegex =
@@ -96,6 +83,10 @@ export function SignUpCard({ setState }: SignUpCardProps) {
 
     setPending(true);
     signIn("password", { name, email, password, flow: "signUp" })
+    .then(() => {
+      // ✅ Navigate to complete-profile after successful sign-up
+      router.push("/complete-profile");
+    })
       .catch((err: any) => {
         console.error("Signup error:", err);
         if (err?.message?.includes("already exists")) {
@@ -140,7 +131,7 @@ export function SignUpCard({ setState }: SignUpCardProps) {
               required
             />
             <Label htmlFor="email">Email</Label>
-            <Input
+            <Input 
               disabled={pending}
               id="email"
               type="email"
@@ -156,7 +147,7 @@ export function SignUpCard({ setState }: SignUpCardProps) {
 
           <div className="space-y-2">
             <Label htmlFor="password">Password</Label>
-            <Input
+            <Input 
               id="password"
               type="password"
               placeholder="Enter your password (minimum 8 character)"
@@ -170,7 +161,7 @@ export function SignUpCard({ setState }: SignUpCardProps) {
           </div>
           <div className="space-y-2">
             <Label htmlFor="confirmPassword">Confirm Password</Label>
-            <Input
+            <Input className="input-placeholder"
               disabled={pending}
               id="confirmPassword"
               type="password"

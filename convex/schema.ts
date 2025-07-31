@@ -11,6 +11,16 @@ import { v } from 'convex/values';
 //     joinCode: v.string(),
 //   }),
 const schema = defineSchema({
+
+  profiles: defineTable({
+    userId: v.string(),
+    name: v.string(),
+    age: v.string(),
+    contact: v.string(),
+    bio: v.string(),
+    company: v.string(),
+  }),
+  
   ...authTables,
   workspaces: defineTable({
     name: v.string(),
@@ -60,6 +70,8 @@ const schema = defineSchema({
     .index('by_workspace_id', ['workspaceId'])
     .index('by_message_id', ['messageId'])
     .index('by_member_id', ['memberId']),
+
+
 });
 
 

@@ -44,7 +44,7 @@ import { toast } from "sonner";
         onSuccess: (id) =>{
           toast.success("channel created !");
           router.push(`/workspace/${workspaceId}/channel/${id}`)
-          console.log(id); // trial
+          // console.log(id); // trial
           handleClose()
         },
         onError: () => {

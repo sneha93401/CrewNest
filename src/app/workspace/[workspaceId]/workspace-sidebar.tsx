@@ -54,7 +54,7 @@ export const WorkspaceSidebar = () => {
   }
 
   return (
-    <div className="flex h-full flex-col gap-y-2 bg-[#6b9080] workspace_sidebar">
+    <div className="flex h-full flex-col gap-y-2 bg-[#004030] workspace_sidebar">
       <WorkspaceHeader
         workspace={workspace}
         isAdmin={member.role === "admin"}

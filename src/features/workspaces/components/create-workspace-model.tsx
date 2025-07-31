@@ -158,14 +158,14 @@ export const CreateWorkspaceModel = () => {
         }
       }}
     >
-      <DialogContent className="bg-[#6b9080]">
+      <DialogContent className="bg-[#FCFAEE]">
         <DialogHeader>
-          <DialogTitle className="text-white">Add new workspace</DialogTitle>
+          <DialogTitle className="text-black">Add new workspace</DialogTitle>
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <Input
-            className="placeholder-white text-white"
+            className='workspace-placeholder'
             disabled={isPending}
             value={name}
             onChange={(e) => setName(e.target.value)}
@@ -178,7 +178,7 @@ export const CreateWorkspaceModel = () => {
 
           {showNote && !hasAnyWorkspace && (
             <p className="text-sm text-red-500">
-              Note: You have to create at least one workspace.
+              You have to create atleast one workspace.
             </p>
           )}
 

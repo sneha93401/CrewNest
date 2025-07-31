@@ -32,7 +32,7 @@ const {data:member, isLoading:memberLoading} = useCurrentMember({
 
   if (workspaceLoading || channelsLoading || memberLoading ) {
     return (
-      <div className="flex h-full flex-1 flex-col items-center justify-center gap-2 bg-[#5E2C5F]/95 text-white">
+      <div className="flex h-full flex-1 flex-col items-center justify-center gap-2 bg-[#004030]/95 text-white">
         <Loader className="size-5 animate-spin text-muted-foreground" />
       </div>
     );
@@ -40,7 +40,7 @@ const {data:member, isLoading:memberLoading} = useCurrentMember({
 
   if (!workspace || !member) {
     return (
-      <div className="flex h-full flex-1 flex-col items-center justify-center gap-2 bg-[#5E2C5F]/95 text-white">
+      <div className="flex h-full flex-1 flex-col items-center justify-center gap-2 bg-[#004030]/95 text-white">
         <TriangleAlert className="size-5 text-muted-foreground" />
         <span className="text-sm">Workspace not found! you have to make Workspace first.</span>
       </div>
@@ -48,7 +48,7 @@ const {data:member, isLoading:memberLoading} = useCurrentMember({
   }
 
   return (
-    <div className="flex h-full flex-1 flex-col items-center justify-center gap-2 bg-[#5E2C5F]/95 text-white">
+    <div className="flex h-full flex-1 flex-col items-center justify-center gap-2 bg-[#004030]/95 text-white">
       <TriangleAlert className="size-5 text-muted-foreground" />
       <span className="text-sm">No Channel(s) found! you have to make channel first.</span>
     </div>

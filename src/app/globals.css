@@ -199,3 +199,17 @@ body,
   scrollbar-width: thin;
   scrollbar-color: #dcdcdc #f8f8f8;
 }
+
+.input-placeholder::placeholder{
+  font-size: 13px;
+}
+#email::placeholder {
+  font-size: 13px;
+}
+#password::placeholder {
+  font-size: 13px;
+}
+#name::placeholder {
+  font-size: 13px; 
+}
+
