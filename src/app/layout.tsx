@@ -37,7 +37,7 @@
 
 // export default RootLayout;
 
-import { ClerkProvider } from '@clerk/nextjs'; // ✅ Add this line
+// import { ClerkProvider } from '@clerk/nextjs'; // ✅ Add this line
 import { ConvexAuthNextjsServerProvider } from '@convex-dev/auth/nextjs/server';
 import { Inter } from 'next/font/google';
 import { PropsWithChildren } from 'react';
@@ -59,7 +59,7 @@ const RootLayout = ({ children }: Readonly<PropsWithChildren>) => {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased`}>
-        <ClerkProvider> 
+        {/* <ClerkProvider>  */}
           <ConvexAuthNextjsServerProvider>
             <ConvexClientProvider>
               <JotaiProvider>
@@ -71,7 +71,7 @@ const RootLayout = ({ children }: Readonly<PropsWithChildren>) => {
               </JotaiProvider>
             </ConvexClientProvider>
           </ConvexAuthNextjsServerProvider>
-        </ClerkProvider>
+        {/* </ClerkProvider> */}
       </body>
     </html>
   );

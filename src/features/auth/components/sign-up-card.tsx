@@ -110,7 +110,7 @@ export function SignUpCard({ setState }: SignUpCardProps) {
   return (
     <Card className="w-full max-w-md mx-auto px-6">
       <CardHeader>
-        <h2 className="text-2xl font-bold text-center">Sign in to Continue</h2>
+        <h2 className="text-2xl font-bold text-center">Sign up to Continue</h2>
       </CardHeader>
       {!!error && (
         <div className="bg-destructive/15 p-2 mx-6 rounded-md flex items-center gap-x-2 text-sm text-destructive">
